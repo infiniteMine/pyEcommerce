@@ -13,6 +13,7 @@ import {useStateValue} from "../StateProvider";
 import { actionTypes } from '../reducer';
 import { useHistory } from 'react-router-dom';
 import { auth } from '../firebase';
+import '../index.css';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -65,9 +66,11 @@ export default function Navbar() {
             </IconButton>
           </Link>
           <div className={classes.grow}/>
-          <Typography variant="h6" color="textPrimary" component="p">
-            Bienvenido {user ? user.email : ""}
-          </Typography>
+          <div className="r-item__d-none">
+            <Typography variant="h6" color="textPrimary" component="p">
+              Welcome {user ? user.email : ""}
+            </Typography>
+          </div>
           <div className={classes.button}>
             <Link to="/signin">
               <Button variant="outlined" onClick = {handleAuth}>
